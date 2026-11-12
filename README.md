@@ -1,0 +1,26 @@
+# JwtInspector
+
+Decode a JWT and check if it is valid, expired, or dangerous. Backend only, C# console app.
+
+Splits the token into header, payload, and signature, decodes the Base64Url parts, checks `alg` and `exp`, and reports a status and risk level.
+
+## Features
+
+- Base64Url decode with `+`, `/`, and `=` padding fix
+- Header and payload JSON decode
+- Checks for `alg` none, a classic JWT attack
+- Checks for missing `exp`
+- Checks for expired tokens with Unix time
+- Handles invalid tokens without crash
+- No printing inside helpers, only `Main` prints
+
+## Project Structure
+
+- `Program.cs` - Main app, all 4 methods
+- `JwtInspector.csproj` - Project file, .NET 8.0
+
+## How to Run
+
+```bash
+dotnet run -- "<token>"
+dotnet run
